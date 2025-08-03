@@ -103,7 +103,20 @@ The application will be available at `http://localhost:8000`
 
 ## 📋 API Documentation & Testing
 
-A comprehensive Postman collection is included for API testing. Please follow the detailed instructions in the **Postman API Testing Guide** to set up the environment and test all endpoints.
+A comprehensive Postman collection is included for API testing with all endpoints pre-configured and organized by functionality.
+
+### 📚 **Testing Resources**
+
+- **📄 [Postman Testing Guide](./viztube-postman-guide.md)**: Complete step-by-step instructions for setting up and using the Postman collection
+- **📄 [MongoDB Atlas Search Setup](./viztube-atlas-search-guide.md)**: Guide to configure Atlas Search for advanced video search functionality
+- **📦 [Postman Collection](./VizTube.postman_collection.json)**: Pre-configured API requests for all endpoints
+
+### 🚀 **Quick Start Testing**
+
+1. Import the `VizTube.postman_collection.json` file into Postman
+2. Follow the [Postman Testing Guide](./viztube-postman-guide.md) for environment setup
+3. Configure [Atlas Search](./viztube-atlas-search-guide.md) for search functionality
+4. Start testing all API endpoints with authentication flow
 
 ### Key API Endpoints
 
@@ -207,6 +220,12 @@ Render is a modern cloud platform that makes it easy to deploy Node.js applicati
 - **JWT Strategy**: Separate access and refresh tokens for enhanced security
 - **Cookie-based Sessions**: HTTP-only cookies prevent XSS attacks
 - **Token Refresh**: Automatic token renewal for seamless user experience
+
+### 🔍 Advanced Search
+
+- **MongoDB Atlas Search**: Full-text search across video titles and descriptions
+- **Setup Guide**: Follow [Atlas Search Configuration](./viztube-atlas-search-guide.md) for implementation
+- **Search Features**: Fuzzy matching, relevance scoring, and pagination support
 
 ### ✅ Data Validation
 
