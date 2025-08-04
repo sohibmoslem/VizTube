@@ -21,6 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Allows the server to read and set cookies. Essential for auth.
 app.use(cookieParser());
+// This will make your index.html the default page for the root URL.
+app.use(express.static("public"));
 
 // ====================================================================
 //  HEALTH CHECK ROUTE
