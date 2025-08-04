@@ -24,16 +24,13 @@ app.use(cookieParser());
 // This will make your index.html the default page for the root URL.
 app.use(express.static("public"));
 
-// ====================================================================
 //  HEALTH CHECK ROUTE
-// ====================================================================
 app.get("/", (req, res) => {
 	res.status(200).json({
 		status: "ok",
 		message: "VizTube API is live and running!",
 	});
 });
-// ====================================================================
 
 // --- API Routes ---
 // Mounts all the feature-specific routers to the main application under the /api/v1 prefix.
